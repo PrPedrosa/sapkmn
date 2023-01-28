@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext } from 'react';
 import { allPokemon } from '../db';
+import { guid } from '../utils/utilities';
 
 const GameContext = createContext()
 
@@ -8,6 +9,7 @@ function GameProviderWrapper(props) {
   const pokeArray = [...allPokemon]
 
   const handleStarter = (poke) => {
+    poke.id = guid()
     setStarter(poke)
   }
 

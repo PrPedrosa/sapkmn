@@ -1,8 +1,9 @@
 import {useContext, useState, useEffect, useRef} from 'react'
 import Button from '../components/Button';
+import Money from '../components/Money';
 import Pokemon from '../components/Pokemon';
 import { GameContext } from "../contexts/game.context"
-import { getDropResults, getRandomStorePokes } from '../utils/utilities';
+import { getDropResults, getRandomStorePokes} from '../utils/utilities';
 
 
 function Store() {
@@ -10,6 +11,8 @@ function Store() {
 
   const [team, setTeam] = useState(null)
   const [storePokes, setStorePokes] = useState(null)
+  const [money, setMoney] = useState(10)
+
   const dragPoke = useRef(null)
   const draggingOverPoke = useRef(null)
 
@@ -18,25 +21,11 @@ function Store() {
   useEffect(() => {
     let teamCopy = [starter, pokeArray[40], null, null, null, null]
     setTeam(teamCopy)
-    console.log(starter)
   }, [starter])
 
   //set rand store pokes
   useEffect(() => {
-    const newPokeArr = []
-    for(let i = 0; i < pokeArray.length; i++){
-      newPokeArr.push({
-        name: pokeArray[i].name,
-        img: pokeArray[i].img,
-        stats: pokeArray[i].stats,
-        types: pokeArray[i].types,
-        levelsFrom: pokeArray[i].levelsFrom,
-        ability: pokeArray[i].ability,
-        fromStore: true
-      })
-    }
-    //setStorePokes(getRandomStorePokes(pokeArray, 15))
-    setStorePokes([newPokeArr[3],newPokeArr[4],newPokeArr[0],newPokeArr[1],])
+    setStorePokes(getRandomStorePokes(pokeArray, 5))
   }, [pokeArray])
 
   const handleDragStart = (e, position, pokeType) => {
@@ -64,7 +53,13 @@ function Store() {
     const dropResults = getDropResults(teamCopy, storeCopy, dragType, hoverType, dragIdx, hoverIdx, pokeArray)
     if(!dropResults) return
     setTeam(dropResults.team)
+    
+    //check to see if poke bought
+    if(storePokes.length !== dropResults.store.length){
+      setMoney(money => money -=3)
+    }
     setStorePokes(dropResults.store)
+
     //reset refs
     dragPoke.current = null;
     draggingOverPoke.current = null;
@@ -72,20 +67,19 @@ function Store() {
 
   const handleSell = () => {
     const teamCopy = [...team]
-    const newTeam = teamCopy.filter(poke => !poke || !poke.isSelected)
-    setTeam(newTeam)
-    console.log(newTeam)
+    if(teamCopy.filter(poke => poke).length === 1) return
+    const pokeToSell = teamCopy.find(poke => poke && poke.isSelected)
+    if(!pokeToSell) return
+    const index = teamCopy.indexOf(pokeToSell)
+    teamCopy.splice(index, 1, null)
+    setTeam(teamCopy)
+    setMoney((money => money +=1))
   }
 
-  const handleSelect = (pokeIdx, pokemon) => {
-    //if clicking on store, team pokes get highlighted fml, solve pls (add a prop named type that says if it is from store or from team)
+  const handleSelect = (pokemon) => {
     const teamCopy = [...team]
-    const pokeToSelect = teamCopy[pokeIdx]
-    if(pokeToSelect.isSelected === true){
-      pokeToSelect.isSelected = false
-      if(pokeToSelect.fromStore){
-        pokeToSelect.fromStore = false
-      }
+    if(pokemon.isSelected === true){
+      pokemon.isSelected = false
       setTeam(teamCopy)
       return
     }
@@ -94,15 +88,13 @@ function Store() {
         poke.isSelected = false
       }
     })
-    if(pokeToSelect.fromStore){
-      pokeToSelect.fromStore = false
-    }
-    pokeToSelect.isSelected = true
+    pokemon.isSelected = true
     setTeam(teamCopy)
   }
 
   return(
     <div className='h-screen flex flex-col justify-around bg-slate-500'>
+      <Money amount={money}/>
       <Button text="Sell" onClick={handleSell}/>
       <div className='border-2 border-red-800 rounded-[5px] p-5 grid grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr] self-center gap-[5px]'>
           {team && team.map((poke, i) => 

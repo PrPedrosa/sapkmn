@@ -1,9 +1,7 @@
 export const allPokemon = [
     {
         "name": "bulbasaur",
-
         "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-
         "stats": {
             "hp": 45,
             "att": 49,
@@ -12,15 +10,19 @@ export const allPokemon = [
             "spDef": 65,
             "speed": 45,
         },
-
         "types": [
             "grass",
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 3,
+        },
         "levelsFrom": null,  
         "ability": "overgrow",
     },
-
     {
         "name": "ivysaur",
         "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
@@ -36,6 +38,12 @@ export const allPokemon = [
             "grass",
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 3,
+        },
         "levelsFrom": "bulbasaur",
         "ability": "overgrow",
     },
@@ -54,6 +62,12 @@ export const allPokemon = [
             "grass",
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 3,
+            "stages": 3,
+        },
         "levelsFrom": "ivysaur",
         "ability": "overgrow",
     },
@@ -71,6 +85,12 @@ export const allPokemon = [
         "types": [
             "fire",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 3,
+        },
         "levelsFrom": null,
         "ability": "blaze",
     },
@@ -88,6 +108,12 @@ export const allPokemon = [
         "types": [
             "fire",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 3,
+        },
         "levelsFrom": "charmander",
         "ability": "blaze",
     },
@@ -106,6 +132,12 @@ export const allPokemon = [
             "fire",
             "flying",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 3,
+            "stages": 3,
+        },
         "levelsFrom": "charmeleon",
         "ability": "blaze",
     },
@@ -123,6 +155,12 @@ export const allPokemon = [
         "types": [
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 3,
+        },
         "levelsFrom": null,
         "ability": "torrent",
     },
@@ -140,6 +178,12 @@ export const allPokemon = [
         "types": [
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 3,
+        },
         "levelsFrom": "squirtle",
         "ability": "torrent",
     },
@@ -157,6 +201,12 @@ export const allPokemon = [
         "types": [
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 3,
+            "stages": 3,
+        },
         "levelsFrom": "wartortle",
         "ability": "torrent",
     },
@@ -174,6 +224,12 @@ export const allPokemon = [
         "types": [
             "bug",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 3,
+        },
         "levelsFrom": null,
         "ability": "shield-dust",
     },
@@ -191,6 +247,12 @@ export const allPokemon = [
         "types": [
             "bug",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 3,
+        },
         "levelsFrom": "caterpie",
         "ability": "shed-skin",
     },
@@ -209,6 +271,12 @@ export const allPokemon = [
             "bug",
             "flying",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 3,
+            "stages": 3,
+        },
         "levelsFrom": "metapod",
         "ability": "compound-eyes",
     },
@@ -227,6 +295,12 @@ export const allPokemon = [
             "bug",
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 3,
+        },
         "levelsFrom": null,
         "ability": "shield-dust",
     },
@@ -245,6 +319,12 @@ export const allPokemon = [
             "bug",
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 3,
+        },
         "levelsFrom": "weedle",
         "ability": "shed-skin",
     },
@@ -263,6 +343,12 @@ export const allPokemon = [
             "bug",
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 3,
+            "stages": 3,
+        },
         "levelsFrom": "kakuna",
         "ability": "swarm",
     },
@@ -281,6 +367,12 @@ export const allPokemon = [
             "normal",
             "flying",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 3,
+        },
         "levelsFrom": null,
         "ability": "keen-eye",
     },
@@ -299,6 +391,12 @@ export const allPokemon = [
             "normal",
             "flying",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 3,
+        },
         "levelsFrom": "pidgey",
         "ability": "keen-eye",
     },
@@ -317,6 +415,12 @@ export const allPokemon = [
             "normal",
             "flying",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 3,
+            "stages": 3,
+        },
         "levelsFrom": "pidgeotto",
         "ability": "keen-eye",
     },
@@ -334,6 +438,12 @@ export const allPokemon = [
         "types": [
             "normal",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "run-away",
     },
@@ -351,6 +461,12 @@ export const allPokemon = [
         "types": [
             "normal",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "rattata",
         "ability": "run-away",
     },
@@ -369,6 +485,12 @@ export const allPokemon = [
             "normal",
             "flying",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "keen-eye",
     },
@@ -387,6 +509,12 @@ export const allPokemon = [
             "normal",
             "flying",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "spearow",
         "ability": "keen-eye",
     },
@@ -404,6 +532,12 @@ export const allPokemon = [
         "types": [
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "intimidate",
     },
@@ -421,6 +555,12 @@ export const allPokemon = [
         "types": [
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "ekans",
         "ability": "intimidate",
     },
@@ -438,6 +578,12 @@ export const allPokemon = [
         "types": [
             "electric",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "static",
     },
@@ -455,6 +601,12 @@ export const allPokemon = [
         "types": [
             "electric",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "pikachu",
         "ability": "static",
     },
@@ -472,6 +624,12 @@ export const allPokemon = [
         "types": [
             "ground",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "sand-veil",
     },
@@ -489,6 +647,12 @@ export const allPokemon = [
         "types": [
             "ground",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "sandshrew",
         "ability": "sand-veil",
     },
@@ -506,6 +670,12 @@ export const allPokemon = [
         "types": [
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 3,
+        },
         "levelsFrom": null,
         "ability": "poison-point",
     },
@@ -523,6 +693,12 @@ export const allPokemon = [
         "types": [
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 3,
+        },
         "levelsFrom": "nidoran-f",
         "ability": "poison-point",
     },
@@ -541,6 +717,12 @@ export const allPokemon = [
             "poison",
             "ground",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 3,
+            "stages": 3,
+        },
         "levelsFrom": "nidorina",
         "ability": "poison-point",
     },
@@ -558,6 +740,12 @@ export const allPokemon = [
         "types": [
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 3,
+        },
         "levelsFrom": null,
         "ability": "poison-point",
     },
@@ -575,6 +763,12 @@ export const allPokemon = [
         "types": [
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 3,
+        },
         "levelsFrom": "nidoran-m",
         "ability": "poison-point",
     },
@@ -593,6 +787,12 @@ export const allPokemon = [
             "poison",
             "ground",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 3,
+            "stages": 3,
+        },
         "levelsFrom": "nidorino",
         "ability": "poison-point",
     },
@@ -610,6 +810,12 @@ export const allPokemon = [
         "types": [
             "fairy",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "cute-charm",
     },
@@ -627,6 +833,12 @@ export const allPokemon = [
         "types": [
             "fairy",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "clefairy",
         "ability": "cute-charm",
     },
@@ -644,6 +856,12 @@ export const allPokemon = [
         "types": [
             "fire",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "flash-fire",
     },
@@ -661,6 +879,12 @@ export const allPokemon = [
         "types": [
             "fire",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "vulpix",
         "ability": "flash-fire",
     },
@@ -679,6 +903,12 @@ export const allPokemon = [
             "normal",
             "fairy",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "cute-charm",
     },
@@ -697,6 +927,12 @@ export const allPokemon = [
             "normal",
             "fairy",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "jigglypuff",
         "ability": "cute-charm",
     },
@@ -715,6 +951,12 @@ export const allPokemon = [
             "poison",
             "flying",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "inner-focus",
     },
@@ -733,6 +975,12 @@ export const allPokemon = [
             "poison",
             "flying",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "zubat",
         "ability": "inner-focus",
     },
@@ -751,6 +999,12 @@ export const allPokemon = [
             "grass",
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 3,
+        },
         "levelsFrom": null,
         "ability": "chlorophyll",
     },
@@ -769,6 +1023,12 @@ export const allPokemon = [
             "grass",
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 3,
+        },
         "levelsFrom": "oddish",
         "ability": "chlorophyll",
     },
@@ -787,6 +1047,12 @@ export const allPokemon = [
             "grass",
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 3,
+            "stages": 3,
+        },
         "levelsFrom": "gloom",
         "ability": "chlorophyll",
     },
@@ -805,6 +1071,12 @@ export const allPokemon = [
             "bug",
             "grass",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "effect-spore",
     },
@@ -823,6 +1095,12 @@ export const allPokemon = [
             "bug",
             "grass",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "paras",
         "ability": "effect-spore",
     },
@@ -841,6 +1119,12 @@ export const allPokemon = [
             "bug",
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "compound-eyes",
     },
@@ -859,6 +1143,12 @@ export const allPokemon = [
             "bug",
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "venonat",
         "ability": "shield-dust",
     },
@@ -876,6 +1166,12 @@ export const allPokemon = [
         "types": [
             "ground",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "sand-veil",
     },
@@ -893,6 +1189,12 @@ export const allPokemon = [
         "types": [
             "ground",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "diglett",
         "ability": "sand-veil",
     },
@@ -910,6 +1212,12 @@ export const allPokemon = [
         "types": [
             "normal",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "pickup",
     },
@@ -927,6 +1235,12 @@ export const allPokemon = [
         "types": [
             "normal",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "meowth",
         "ability": "limber",
     },
@@ -944,6 +1258,12 @@ export const allPokemon = [
         "types": [
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "damp",
     },
@@ -961,6 +1281,12 @@ export const allPokemon = [
         "types": [
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "psyduck",
         "ability": "damp",
     },
@@ -978,6 +1304,12 @@ export const allPokemon = [
         "types": [
             "fighting",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "vital-spirit",
     },
@@ -995,6 +1327,12 @@ export const allPokemon = [
         "types": [
             "fighting",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "mankey",
         "ability": "vital-spirit",
     },
@@ -1012,6 +1350,12 @@ export const allPokemon = [
         "types": [
             "fire",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "intimidate",
     },
@@ -1029,6 +1373,12 @@ export const allPokemon = [
         "types": [
             "fire",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "growlithe",
         "ability": "intimidate",
     },
@@ -1046,6 +1396,12 @@ export const allPokemon = [
         "types": [
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 3,
+        },
         "levelsFrom": null,
         "ability": "water-absorb",
     },
@@ -1063,6 +1419,12 @@ export const allPokemon = [
         "types": [
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 3,
+        },
         "levelsFrom": "poliwag",
         "ability": "water-absorb",
     },
@@ -1081,6 +1443,12 @@ export const allPokemon = [
             "water",
             "fighting",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 3,
+            "stages": 3,
+        },
         "levelsFrom": "poliwhirl",
         "ability": "water-absorb",
     },
@@ -1098,6 +1466,12 @@ export const allPokemon = [
         "types": [
             "psychic",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 3,
+        },
         "levelsFrom": null,
         "ability": "synchronize",
     },
@@ -1115,6 +1489,12 @@ export const allPokemon = [
         "types": [
             "psychic",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 3,
+        },
         "levelsFrom": "abra",
         "ability": "synchronize",
     },
@@ -1132,6 +1512,12 @@ export const allPokemon = [
         "types": [
             "psychic",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 3,
+            "stages": 3,
+        },
         "levelsFrom": "kadabra",
         "ability": "synchronize",
     },
@@ -1149,6 +1535,12 @@ export const allPokemon = [
         "types": [
             "fighting",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 3,
+        },
         "levelsFrom": null,
         "ability": "guts",
     },
@@ -1166,6 +1558,12 @@ export const allPokemon = [
         "types": [
             "fighting",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 3,
+        },
         "levelsFrom": "machop",
         "ability": "guts",
     },
@@ -1183,6 +1581,12 @@ export const allPokemon = [
         "types": [
             "fighting",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 3,
+            "stages": 3,
+        },
         "levelsFrom": "machoke",
         "ability": "guts",
     },
@@ -1201,6 +1605,12 @@ export const allPokemon = [
             "grass",
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 3,
+        },
         "levelsFrom": null,
         "ability": "chlorophyll",
     },
@@ -1219,6 +1629,12 @@ export const allPokemon = [
             "grass",
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 3,
+        },
         "levelsFrom": "bellsprout",
         "ability": "chlorophyll",
     },
@@ -1237,6 +1653,12 @@ export const allPokemon = [
             "grass",
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 3,
+            "stages": 3,
+        },
         "levelsFrom": "weepinbell",
         "ability": "chlorophyll",
     },
@@ -1255,6 +1677,12 @@ export const allPokemon = [
             "water",
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "clear-body",
     },
@@ -1273,6 +1701,12 @@ export const allPokemon = [
             "water",
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "tentacool",
         "ability": "clear-body",
     },
@@ -1291,6 +1725,12 @@ export const allPokemon = [
             "rock",
             "ground",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 3,
+        },
         "levelsFrom": null,
         "ability": "rock-head",
     },
@@ -1309,6 +1749,12 @@ export const allPokemon = [
             "rock",
             "ground",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 3,
+        },
         "levelsFrom": "geodude",
         "ability": "rock-head",
     },
@@ -1327,6 +1773,12 @@ export const allPokemon = [
             "rock",
             "ground",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 3,
+            "stages": 3,
+        },
         "levelsFrom": "graveler",
         "ability": "rock-head",
     },
@@ -1344,6 +1796,12 @@ export const allPokemon = [
         "types": [
             "fire",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "run-away",
     },
@@ -1361,6 +1819,12 @@ export const allPokemon = [
         "types": [
             "fire",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "ponyta",
         "ability": "run-away",
     },
@@ -1379,6 +1843,12 @@ export const allPokemon = [
             "water",
             "psychic",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "oblivious",
     },
@@ -1397,6 +1867,12 @@ export const allPokemon = [
             "water",
             "psychic",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "slowpoke",
         "ability": "oblivious",
     },
@@ -1415,6 +1891,12 @@ export const allPokemon = [
             "electric",
             "steel",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "magnet-pull",
     },
@@ -1433,6 +1915,12 @@ export const allPokemon = [
             "electric",
             "steel",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "magnemite",
         "ability": "magnet-pull",
     },
@@ -1451,6 +1939,12 @@ export const allPokemon = [
             "normal",
             "flying",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "keen-eye",
     },
@@ -1469,6 +1963,12 @@ export const allPokemon = [
             "normal",
             "flying",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "run-away",
     },
@@ -1487,6 +1987,12 @@ export const allPokemon = [
             "normal",
             "flying",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "doduo",
         "ability": "run-away",
     },
@@ -1504,6 +2010,12 @@ export const allPokemon = [
         "types": [
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "thick-fat",
     },
@@ -1522,6 +2034,12 @@ export const allPokemon = [
             "water",
             "ice",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "seel",
         "ability": "thick-fat",
     },
@@ -1539,6 +2057,12 @@ export const allPokemon = [
         "types": [
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "stench",
     },
@@ -1556,6 +2080,12 @@ export const allPokemon = [
         "types": [
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "grimer",
         "ability": "stench",
     },
@@ -1573,6 +2103,12 @@ export const allPokemon = [
         "types": [
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "shell-armor",
     },
@@ -1591,6 +2127,12 @@ export const allPokemon = [
             "water",
             "ice",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "shellder",
         "ability": "shell-armor",
     },
@@ -1609,6 +2151,12 @@ export const allPokemon = [
             "ghost",
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 3,
+        },
         "levelsFrom": null,
         "ability": "levitate",
     },
@@ -1627,6 +2175,12 @@ export const allPokemon = [
             "ghost",
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 3,
+        },
         "levelsFrom": "gastly",
         "ability": "levitate",
     },
@@ -1645,6 +2199,12 @@ export const allPokemon = [
             "ghost",
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 3,
+            "stages": 3,
+        },
         "levelsFrom": "haunter",
         "ability": "cursed-body",
     },
@@ -1663,6 +2223,12 @@ export const allPokemon = [
             "rock",
             "ground",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "rock-head",
     },
@@ -1680,6 +2246,12 @@ export const allPokemon = [
         "types": [
             "psychic",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "insomnia",
     },
@@ -1697,6 +2269,12 @@ export const allPokemon = [
         "types": [
             "psychic",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "drowzee",
         "ability": "insomnia",
     },
@@ -1714,6 +2292,12 @@ export const allPokemon = [
         "types": [
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "hyper-cutter",
     },
@@ -1731,6 +2315,12 @@ export const allPokemon = [
         "types": [
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "krabby",
         "ability": "hyper-cutter",
     },
@@ -1748,6 +2338,12 @@ export const allPokemon = [
         "types": [
             "electric",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "soundproof",
     },
@@ -1765,6 +2361,12 @@ export const allPokemon = [
         "types": [
             "electric",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "voltorb",
         "ability": "soundproof",
     },
@@ -1783,6 +2385,12 @@ export const allPokemon = [
             "grass",
             "psychic",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "chlorophyll",
     },
@@ -1801,6 +2409,12 @@ export const allPokemon = [
             "grass",
             "psychic",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "exeggcute",
         "ability": "chlorophyll",
     },
@@ -1818,6 +2432,12 @@ export const allPokemon = [
         "types": [
             "ground",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "rock-head",
     },
@@ -1835,6 +2455,12 @@ export const allPokemon = [
         "types": [
             "ground",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "cubone",
         "ability": "rock-head",
     },
@@ -1852,6 +2478,12 @@ export const allPokemon = [
         "types": [
             "fighting",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "limber",
     },
@@ -1869,6 +2501,12 @@ export const allPokemon = [
         "types": [
             "fighting",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "keen-eye",
     },
@@ -1886,6 +2524,12 @@ export const allPokemon = [
         "types": [
             "normal",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "own-tempo",
     },
@@ -1903,6 +2547,12 @@ export const allPokemon = [
         "types": [
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "levitate",
     },
@@ -1920,6 +2570,12 @@ export const allPokemon = [
         "types": [
             "poison",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "koffing",
         "ability": "levitate",
     },
@@ -1938,6 +2594,12 @@ export const allPokemon = [
             "ground",
             "rock",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "lightning-rod",
     },
@@ -1956,6 +2618,12 @@ export const allPokemon = [
             "ground",
             "rock",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "rhyhorn",
         "ability": "lightning-rod",
     },
@@ -1973,6 +2641,12 @@ export const allPokemon = [
         "types": [
             "normal",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "natural-cure",
     },
@@ -1990,6 +2664,12 @@ export const allPokemon = [
         "types": [
             "normal",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "early-bird",
     },
@@ -2007,6 +2687,12 @@ export const allPokemon = [
         "types": [
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "swift-swim",
     },
@@ -2024,6 +2710,12 @@ export const allPokemon = [
         "types": [
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "horsea",
         "ability": "poison-point",
     },
@@ -2041,6 +2733,12 @@ export const allPokemon = [
         "types": [
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "swift-swim",
     },
@@ -2058,6 +2756,12 @@ export const allPokemon = [
         "types": [
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "goldeen",
         "ability": "swift-swim",
     },
@@ -2075,6 +2779,12 @@ export const allPokemon = [
         "types": [
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "illuminate",
     },
@@ -2093,6 +2803,12 @@ export const allPokemon = [
             "water",
             "psychic"
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "staryu",
         "ability": "illuminate",
     },
@@ -2111,6 +2827,12 @@ export const allPokemon = [
             "psychic",
             "fairy",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "soundproof",
     },
@@ -2129,6 +2851,12 @@ export const allPokemon = [
             "bug",
             "flying",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "swarm",
     },
@@ -2147,6 +2875,12 @@ export const allPokemon = [
             "ice",
             "psychic",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "oblivious",
     },
@@ -2164,6 +2898,12 @@ export const allPokemon = [
         "types": [
             "electric",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "static",
     },
@@ -2181,6 +2921,12 @@ export const allPokemon = [
         "types": [
             "fire",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "flame-body",
     },
@@ -2198,6 +2944,12 @@ export const allPokemon = [
         "types": [
             "bug",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "hyper-cutter",
     },
@@ -2215,6 +2967,12 @@ export const allPokemon = [
         "types": [
             "normal",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "intimidate",
     },
@@ -2232,6 +2990,12 @@ export const allPokemon = [
         "types": [
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "swift-swim",
     },
@@ -2250,6 +3014,12 @@ export const allPokemon = [
             "water",
             "flying",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "magikarp",
         "ability": "intimidate",
     },
@@ -2268,6 +3038,12 @@ export const allPokemon = [
             "water",
             "ice",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "water-absorb",
     },
@@ -2285,6 +3061,12 @@ export const allPokemon = [
         "types": [
             "normal",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "limber",
     },
@@ -2302,6 +3084,12 @@ export const allPokemon = [
         "types": [
             "normal",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "run-away",
     },
@@ -2319,6 +3107,12 @@ export const allPokemon = [
         "types": [
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "eevee",
         "ability": "water-absorb",
     },
@@ -2336,6 +3130,12 @@ export const allPokemon = [
         "types": [
             "electric",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "eevee",
         "ability": "volt-absorb",
     },
@@ -2353,6 +3153,12 @@ export const allPokemon = [
         "types": [
             "fire",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "eevee",
         "ability": "flash-fire",
     },
@@ -2370,6 +3176,12 @@ export const allPokemon = [
         "types": [
             "normal",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "trace",
     },
@@ -2388,6 +3200,12 @@ export const allPokemon = [
             "rock",
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "swift-swim",
     },
@@ -2406,6 +3224,12 @@ export const allPokemon = [
             "rock",
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "omanyte",
         "ability": "swift-swim",
     },
@@ -2424,6 +3248,12 @@ export const allPokemon = [
             "rock",
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 2,
+        },
         "levelsFrom": null,
         "ability": "swift-swim",
     },
@@ -2442,6 +3272,12 @@ export const allPokemon = [
             "rock",
             "water",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 2,
+        },
         "levelsFrom": "kabuto",
         "ability": "swift-swim",
     },
@@ -2460,6 +3296,12 @@ export const allPokemon = [
             "rock",
             "flying",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "rock-head",
     },
@@ -2477,6 +3319,12 @@ export const allPokemon = [
         "types": [
             "normal",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "immunity",
     },
@@ -2495,6 +3343,12 @@ export const allPokemon = [
             "ice",
             "flying",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "pressure",
     },
@@ -2513,6 +3367,12 @@ export const allPokemon = [
             "electric",
             "flying",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "pressure",
     },
@@ -2531,6 +3391,12 @@ export const allPokemon = [
             "fire",
             "flying",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "pressure",
     },
@@ -2548,6 +3414,12 @@ export const allPokemon = [
         "types": [
             "dragon",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 3,
+        },
         "levelsFrom": null,
         "ability": "shed-skin",
     },
@@ -2565,6 +3437,12 @@ export const allPokemon = [
         "types": [
             "dragon",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 2,
+            "stages": 3,
+        },
         "levelsFrom": "dratini",
         "ability": "shed-skin",
     },
@@ -2583,6 +3461,12 @@ export const allPokemon = [
             "dragon",
             "flying",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 3,
+            "stages": 3,
+        },
         "levelsFrom": "dragonair",
         "ability": "inner-focus",
     },
@@ -2600,6 +3484,12 @@ export const allPokemon = [
         "types": [
             "psychic",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "pressure",
     },
@@ -2617,6 +3507,12 @@ export const allPokemon = [
         "types": [
             "psychic",
         ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
         "levelsFrom": null,
         "ability": "synchronize",
     },

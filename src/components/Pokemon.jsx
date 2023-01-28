@@ -15,14 +15,17 @@ function Pokemon({pokemon, dragStart, pokeIdx, dragEnter, drop, pokeType, handle
     onDragOver={() => !isBeingDraggedOver && setIsBeingDraggedOver(true)}
     onDragLeave={(e) => setIsBeingDraggedOver(false)}
     onDragEnd={(e) => {drop(e, pokeType); setIsDragging(false); setIsBeingDraggedOver(false)}}
-    onClick={(e) => handleSelect(pokeIdx, pokemon)}
-    className={classNames("rounded-[5px]", {
+    onClick={(e) => handleSelect(pokemon)}
+    className={classNames("rounded-[5px] relative", {
       "border-2 border-red-800 opacity-[0.5]": isDragging,
       "border-2 border-blue-700": isBeingDraggedOver,
       "border-2 border-black": !isDragging && !isBeingDraggedOver,
       "border-2 border-green-800": pokemon.isSelected
     })}
     >
+      <div className="flex items-center gap-[5px] px-[3px]">
+        <p className="">lvl {pokemon.level}</p>
+      </div>
       <img src={pokemon.img} draggable="false"/>
       <div className='flex justify-evenly' draggable="false">
         <div className='text-white bg-black rounded-lg px-1' draggable="false">{pokemon.stats.att}</div>

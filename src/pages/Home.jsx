@@ -7,7 +7,8 @@ function Home() {
   const [start, setStart] = useState(false)
   const [starterChoice, setStarterChoice] = useState("")
 
-  const handleStarterChoice = (poke) => {    handleStarter(poke)
+  const handleStarterChoice = (poke) => {    
+    handleStarter(poke)
     if(poke.name === "bulbasaur") setStarterChoice("bulba")
     if(poke.name === "squirtle") setStarterChoice("squirtle")
     if(poke.name === "charmander") setStarterChoice("charmander")
