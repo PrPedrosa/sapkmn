@@ -2651,6 +2651,29 @@ export const allPokemon = [
         "ability": "natural-cure",
     },
     {
+        "name": "tangela",
+        "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/114.png",
+        "stats": {
+            "hp": 65,
+            "att": 55,
+            "def": 115,
+            "spAtt": 100,
+            "spDef": 40,
+            "speed": 60,
+        },
+        "types": [
+            "grass",
+        ],
+        "id": null,
+        "level": 1,
+        "evoLine": {
+            "stage": 1,
+            "stages": 1,
+        },
+        "levelsFrom": null,
+        "ability": "chlorophyll",
+    },
+    {
         "name": "kangaskhan",
         "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/115.png",
         "stats": {

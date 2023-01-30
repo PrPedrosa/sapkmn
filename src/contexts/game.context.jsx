@@ -5,9 +5,9 @@ import { guid } from '../utils/utilities';
 const GameContext = createContext()
 
 function GameProviderWrapper(props) {
-  const [starter, setStarter] = useState({})
+  const [starter, setStarter] = useState(null)
   const [team, setTeam] = useState(null)
-  const pokeArray = [...allPokemon]
+  const [pokeArray, setPokeArray] = useState([...allPokemon])
 
   const handleStarter = (poke) => {
     poke.id = guid()

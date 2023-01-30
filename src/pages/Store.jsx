@@ -8,7 +8,7 @@ import { getDropResults, getRandomStorePokes} from '../utils/utilities';
 
 
 function Store() {
-  const {starter, pokeArray, handleTeam} = useContext(GameContext)
+  const {starter, handleTeam} = useContext(GameContext)
 
   const [team, setTeam] = useState(null)
   const [storePokes, setStorePokes] = useState(null)
@@ -20,16 +20,14 @@ function Store() {
 
   //set initial team
   useEffect(() => {
-    let teamCopy = [starter, pokeArray[40], null, null, null, null]
+    let teamCopy = [starter, null, null, null, null, null]
     setTeam(teamCopy)
   }, [starter])
 
   //set rand store pokes
   useEffect(() => {
-    if(pokeArray){
-      setStorePokes(getRandomStorePokes(pokeArray, 8))
-    }
-  }, [pokeArray])
+      setStorePokes((prev) => prev = getRandomStorePokes(8))
+  }, [])
 
   const handleDragStart = (e, position, pokeType) => {
     dragPoke.current = {
@@ -53,7 +51,7 @@ function Store() {
     const dragIdx = dragPoke.current.idx
     const hoverIdx = draggingOverPoke.current.idx
 
-    const dropResults = getDropResults(teamCopy, storeCopy, dragType, hoverType, dragIdx, hoverIdx, pokeArray)
+    const dropResults = getDropResults(teamCopy, storeCopy, dragType, hoverType, dragIdx, hoverIdx)
     if(!dropResults) return
     setTeam(dropResults.team)
     
