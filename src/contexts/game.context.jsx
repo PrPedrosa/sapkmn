@@ -6,6 +6,7 @@ const GameContext = createContext()
 
 function GameProviderWrapper(props) {
   const [starter, setStarter] = useState({})
+  const [team, setTeam] = useState(null)
   const pokeArray = [...allPokemon]
 
   const handleStarter = (poke) => {
@@ -13,8 +14,12 @@ function GameProviderWrapper(props) {
     setStarter(poke)
   }
 
+  const handleTeam = (team) => {
+    setTeam(team)
+  }
+
   return(
-    <GameContext.Provider value={{handleStarter, pokeArray, starter}}>
+    <GameContext.Provider value={{handleStarter, pokeArray, starter, handleTeam, team}}>
         {props.children}
     </GameContext.Provider>
   )

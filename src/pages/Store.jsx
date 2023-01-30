@@ -1,4 +1,5 @@
 import {useContext, useState, useEffect, useRef} from 'react'
+import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import Money from '../components/Money';
 import Pokemon from '../components/Pokemon';
@@ -7,7 +8,7 @@ import { getDropResults, getRandomStorePokes} from '../utils/utilities';
 
 
 function Store() {
-  const {starter, pokeArray} = useContext(GameContext)
+  const {starter, pokeArray, handleTeam} = useContext(GameContext)
 
   const [team, setTeam] = useState(null)
   const [storePokes, setStorePokes] = useState(null)
@@ -25,7 +26,7 @@ function Store() {
 
   //set rand store pokes
   useEffect(() => {
-    setStorePokes(getRandomStorePokes(pokeArray, 5))
+    setStorePokes(getRandomStorePokes(pokeArray, 8))
   }, [pokeArray])
 
   const handleDragStart = (e, position, pokeType) => {
@@ -95,6 +96,7 @@ function Store() {
   return(
     <div className='h-screen flex flex-col justify-around bg-slate-500'>
       <Money amount={money}/>
+      <Link to={"/game"} onClick={() => handleTeam(team)}>Fight!</Link>
       <Button text="Sell" onClick={handleSell}/>
       <div className='border-2 border-red-800 rounded-[5px] p-5 grid grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr] self-center gap-[5px]'>
           {team && team.map((poke, i) => 
