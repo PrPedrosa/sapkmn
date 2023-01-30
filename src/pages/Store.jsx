@@ -26,7 +26,9 @@ function Store() {
 
   //set rand store pokes
   useEffect(() => {
-    setStorePokes(getRandomStorePokes(pokeArray, 8))
+    if(pokeArray){
+      setStorePokes(getRandomStorePokes(pokeArray, 8))
+    }
   }, [pokeArray])
 
   const handleDragStart = (e, position, pokeType) => {

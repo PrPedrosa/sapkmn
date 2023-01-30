@@ -78,7 +78,7 @@ export class Fight {
         this.ctx.closePath();
     }
 
-    update = () => {
+    update = (startTime, time) => {
         //check game over
         if(this.team.team.length === 0 || this.enemyTeam.team.length === 0){
             if(this.team.team.length === 0 && this.enemyTeam.team.length !== 0){
@@ -92,9 +92,8 @@ export class Fight {
             }
             //cancelAnimationFrame(this.animationId)
         }
-        //this.elapsedTime = +((timestamp - this.startTime)*0.001).toFixed(1) // time in seconds (0.0s)
-        this.elapsedTime ++
-
+        this.elapsedTime = +((time - startTime)*0.001).toFixed(1) // time in seconds (0.0s)
+        console.log(this.elapsedTime)
         this.ctx.clearRect(0, 0, this.canvasW, this.canvasH)
         this.middleLine()
         
