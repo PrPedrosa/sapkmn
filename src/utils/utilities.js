@@ -18,8 +18,8 @@ export function createOnePoke (poke){
 export function getRandomStorePokes (numOfPokes) {
     const randPokeArray = []
     for(let i = 0; i < numOfPokes; i++){
-        const randNum = Math.floor(Math.random()*151)
-        //const randNum = 0
+        //const randNum = Math.floor(Math.random()*151)
+        const randNum = 150
         const randPoke = createOnePoke(allPokemon[randNum])
         randPokeArray.push(randPoke)
     }
@@ -90,16 +90,22 @@ export function getDropResults (teamCopy, storeCopy, dragType, hoverType, dragId
       }
       //if dragging into poke, check same name or evo name and then level up or evolve
       if(storePoke.name === teamPoke.name || storePoke.name === teamPoke.levelsFrom){
+        //check if last stage or no evolution poke so it can go to level 5 and stop
+        if(teamPoke.level >= 4 && teamPoke.evoLine.stage === teamPoke.evoLine.stages){
+          if(teamPoke.level >= 5) return
+          else {
+            const strongPoke = levelUpPoke(teamPoke, 5)
+            teamCopy.splice(hoverIdx, 1, strongPoke)
+            storeCopy.splice(dragIdx, 1)
+            return {team: teamCopy, store: storeCopy}
+          }
+        }
         const strongPoke = evolveOrLevelUpPoke(storePoke, teamPoke)
         teamCopy.splice(hoverIdx, 1, strongPoke)
         storeCopy.splice(dragIdx, 1)
         return {team: teamCopy, store: storeCopy}
       }
       if(teamCopy.length >= 6) return
-      /* teamCopy.splice(hoverIdx, 1, pokeContent)
-      teamCopy.splice(hoverIdx, 0, draggedOverPokeContent)
-      storeCopy.splice(dragIdx, 1)
-      return {team: teamCopy, store: storeCopy} */
     }
 
     //if we are dragging inside the team...
@@ -114,14 +120,25 @@ export function getDropResults (teamCopy, storeCopy, dragType, hoverType, dragId
         teamCopy.splice(hoverIdx, 1, pokeContent)
         return {team: teamCopy, store: storeCopy}
       }
-      //if switching positions
-      if(pokeContent.name !== draggedOverPokeContent.name){
-        teamCopy.splice(dragIdx, 1)
-        teamCopy.splice(hoverIdx, 0, pokeContent)
-        return {team: teamCopy, store: storeCopy}
-      } else if (pokeContent.name === draggedOverPokeContent.name || pokeContent.name === draggedOverPokeContent.levelsFrom) {
+      if (pokeContent.name === draggedOverPokeContent.name || pokeContent.name === draggedOverPokeContent.levelsFrom) {
+        //check if last stage or no evolution poke so it can go to level 5 and stop
+        if(draggedOverPokeContent.level >= 4 && draggedOverPokeContent.evoLine.stage === draggedOverPokeContent.evoLine.stages){
+          if(draggedOverPokeContent.level >= 5) {
+            //just switch positions
+            teamCopy.splice(dragIdx, 1)
+            teamCopy.splice(hoverIdx, 0, pokeContent)
+            return {team: teamCopy, store: storeCopy}
+          } else {
+            const strongPoke = levelUpPoke(draggedOverPokeContent, 5)
+            teamCopy.splice(hoverIdx, 1, strongPoke)
+            teamCopy.splice(dragIdx, 1)
+            if(teamCopy.length !== 6){
+              teamCopy.push(null)
+            }
+            return {team: teamCopy, store: storeCopy}
+          }
+        }
         //if name is same or is a evo, check if level up or evolve 
-        //if dragging bulba to ivysaur doents level him up, FIX THIS #########################
         const strongPoke = evolveOrLevelUpPoke(pokeContent, draggedOverPokeContent)
         teamCopy.splice(hoverIdx, 1, strongPoke)
         teamCopy.splice(dragIdx, 1)
@@ -130,6 +147,13 @@ export function getDropResults (teamCopy, storeCopy, dragType, hoverType, dragId
         }
         return {team: teamCopy, store: storeCopy}
       }
+
+
+      //base case: switching positions
+      teamCopy.splice(dragIdx, 1)
+      teamCopy.splice(hoverIdx, 0, pokeContent)
+      return {team: teamCopy, store: storeCopy}
+      
     }  
 }
 

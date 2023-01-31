@@ -7,7 +7,7 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function Game() {
-  const {team} = useContext(GameContext)
+  const {currentTeam} = useContext(GameContext)
 
   const [fight, setFight] = useState(null)
   const [fightStatus, setFightStatus] = useState("")
@@ -21,16 +21,16 @@ function Game() {
 
   const navigate = useNavigate()
 
-  //################## create and set the canvas with team from context ############
+  //################## create and set the canvas with currentTeam from context ############
   useEffect(() => {
-    if(team){
+    if(currentTeam){
       const canvas = canvasRef.current
       //canvas.width = window.innerWidth;
       //canvas.height = window.innerHeight;
       const ctx = canvas.getContext('2d')
-      setFight(new Fight(ctx, canvas.width, canvas.height, team))
+      setFight(new Fight(ctx, canvas.width, canvas.height, currentTeam))
     }
-  }, [team])
+  }, [currentTeam])
 
   //################## animation logic ######################
   const animate = time => {

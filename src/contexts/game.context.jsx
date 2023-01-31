@@ -5,21 +5,25 @@ import { guid } from '../utils/utilities';
 const GameContext = createContext()
 
 function GameProviderWrapper(props) {
-  const [starter, setStarter] = useState(null)
-  const [team, setTeam] = useState(null)
   const [pokeArray, setPokeArray] = useState([...allPokemon])
+  const [starter, setStarter] = useState(null)
+  const [currentTeam, setCurrentTeam] = useState(null)
+  const [roundNum, setRoundNum] = useState(1)
 
   const handleStarter = (poke) => {
     poke.id = guid()
     setStarter(poke)
+    setCurrentTeam([poke, null, null, null, null, null])
   }
 
-  const handleTeam = (team) => {
-    setTeam(team)
+  const handleCurrentTeam = (currentTeam) => {
+    setCurrentTeam(currentTeam)
   }
+
+  const increaseRound = () => setRoundNum(prevNum => prevNum +1)
 
   return(
-    <GameContext.Provider value={{handleStarter, pokeArray, starter, handleTeam, team}}>
+    <GameContext.Provider value={{handleStarter, pokeArray, starter, handleCurrentTeam, currentTeam, roundNum, increaseRound}}>
         {props.children}
     </GameContext.Provider>
   )

@@ -1,5 +1,5 @@
 import {useContext, useState, useEffect, useRef} from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import Money from '../components/Money';
 import Pokemon from '../components/Pokemon';
@@ -8,7 +8,7 @@ import { getDropResults, getRandomStorePokes} from '../utils/utilities';
 
 
 function Store() {
-  const {starter, handleTeam} = useContext(GameContext)
+  const {handleCurrentTeam, currentTeam, roundNum, increaseRound} = useContext(GameContext)
 
   const [team, setTeam] = useState(null)
   const [storePokes, setStorePokes] = useState(null)
@@ -20,9 +20,12 @@ function Store() {
 
   //set initial team
   useEffect(() => {
-    let teamCopy = [starter, null, null, null, null, null]
-    setTeam(teamCopy)
-  }, [starter])
+    if(currentTeam){
+      setTeam(currentTeam)
+    } else {
+      setTeam([null, null, null, null, null, null])
+    }
+  }, [currentTeam])
 
   //set rand store pokes
   useEffect(() => {
@@ -93,10 +96,18 @@ function Store() {
     setTeam(teamCopy)
   }
 
+  const navigate = useNavigate()
+  const startFight = () => {
+    handleCurrentTeam(team)
+    increaseRound()
+    navigate("/game")
+  }
+
   return(
     <div className='h-screen flex flex-col justify-around bg-slate-500'>
       <Money amount={money}/>
-      <Link to={"/game"} onClick={() => handleTeam(team)}>Fight!</Link>
+      <div className='absolute top-0 left-[50px]'>Round: {roundNum}</div>
+      <button onClick={startFight} className="absolute top-0 right-0 p-[3px] text-white bg-red-800 border-2 border-black">Fight!</button>
       <Button text="Sell" onClick={handleSell}/>
       <div className='border-2 border-red-800 rounded-[5px] p-5 grid grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr] self-center gap-[5px]'>
           {team && team.map((poke, i) => 
