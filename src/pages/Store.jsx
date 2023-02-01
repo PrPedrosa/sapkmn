@@ -4,7 +4,7 @@ import Button from '../components/Button';
 import Money from '../components/Money';
 import Pokemon from '../components/Pokemon';
 import { GameContext } from "../contexts/game.context"
-import { getDropResults, getRandomStorePokes} from '../utils/utilities';
+import { getDropResults, getRandomPokes} from '../utils/utilities';
 
 
 function Store() {
@@ -29,7 +29,7 @@ function Store() {
 
   //set rand store pokes
   useEffect(() => {
-      setStorePokes((prev) => prev = getRandomStorePokes(8))
+      setStorePokes((prev) => prev = getRandomPokes(8, roundNum))
   }, [])
 
   const handleDragStart = (e, position, pokeType) => {

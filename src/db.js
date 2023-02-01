@@ -572,7 +572,7 @@ export const allPokemon = [
             "att": 55,
             "def": 40,
             "spAtt": 50,
-            "spDef": 50,
+            "spDef": 40,
             "speed": 90,
         },
         "types": [

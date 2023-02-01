@@ -15,15 +15,43 @@ export function createOnePoke (poke){
   return newPoke
 }
 
-export function getRandomStorePokes (numOfPokes) {
-    const randPokeArray = []
-    for(let i = 0; i < numOfPokes; i++){
-        //const randNum = Math.floor(Math.random()*151)
-        const randNum = 150
-        const randPoke = createOnePoke(allPokemon[randNum])
-        randPokeArray.push(randPoke)
-    }
-    return randPokeArray
+export function getRandomPokes (numOfPokes, roundNum) {
+  const pokeArray = storePokemonsFilter(roundNum)
+  console.log(pokeArray)
+  const randStorePokes = []
+  for(let i = 0; i < numOfPokes; i++){
+      const randNum = Math.floor(Math.random()*(pokeArray.length))
+      //const randNum = 151
+      const randPoke = createOnePoke(pokeArray[randNum])
+      randStorePokes.push(randPoke)
+  }
+  return randStorePokes
+}
+
+//##### DO THIS: careful for roundNum being increased before fight########
+export function enemyPokemonsFilter (roundNum) {
+
+}
+
+export function storePokemonsFilter (roundNum) {
+  Array.prototype.checkSum = function sumStats (){
+    return this[1] >= this[3] ? this[0] + this[1] : this[0] + this[3]
+  }
+  if (roundNum <= 3){
+    return allPokemon.filter(poke => Object.values(poke.stats).checkSum() <= 85)
+  }
+  if (roundNum <= 6){
+    return allPokemon.filter(poke => Object.values(poke.stats).checkSum() <= 110)
+  }
+  if (roundNum <= 9){
+    return allPokemon.filter(poke => Object.values(poke.stats).checkSum() <= 150)
+  }
+  if (roundNum <= 12){
+    return allPokemon.filter(poke => Object.values(poke.stats).checkSum() <= 190)
+  }
+  if (roundNum > 12){
+    return allPokemon.filter(poke => Object.values(poke.stats).checkSum() <= 300)
+  }
 }
 
 export function levelUpPoke (poke, levelNum) {

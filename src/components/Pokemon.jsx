@@ -28,7 +28,10 @@ function Pokemon({pokemon, dragStart, pokeIdx, dragEnter, drop, pokeType, handle
       </div>
       <img src={pokemon.img} draggable="false"/>
       <div className='flex justify-evenly' draggable="false">
-        <div className='text-white bg-black rounded-lg px-1' draggable="false">{pokemon.stats.att}</div>
+        {pokemon.stats.att >= pokemon.stats.spAtt 
+        ? <div className='text-white bg-black rounded-lg px-1' draggable="false">{pokemon.stats.att}</div>
+        : <div className='text-white bg-violet-800 rounded-lg px-1' draggable="false">{pokemon.stats.spAtt}</div>
+        }
         <div className='text-white bg-red-700 rounded-lg px-1' draggable="false">{pokemon.stats.hp}</div>
       </div>
     </div>
