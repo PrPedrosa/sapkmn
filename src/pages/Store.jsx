@@ -8,7 +8,7 @@ import { getDropResults, getRandomPokes} from '../utils/utilities';
 
 
 function Store() {
-  const {handleCurrentTeam, currentTeam, roundNum, increaseRound} = useContext(GameContext)
+  const {handleCurrentTeam, currentTeam, roundNum, increaseRound, handleEnemyTeam} = useContext(GameContext)
 
   const [team, setTeam] = useState(null)
   const [storePokes, setStorePokes] = useState(null)
@@ -29,7 +29,7 @@ function Store() {
 
   //set rand store pokes
   useEffect(() => {
-      setStorePokes((prev) => prev = getRandomPokes(8, roundNum))
+      setStorePokes(getRandomPokes(8, roundNum))
   }, [])
 
   const handleDragStart = (e, position, pokeType) => {
@@ -98,6 +98,8 @@ function Store() {
 
   const navigate = useNavigate()
   const startFight = () => {
+    const enemyTeam = getRandomPokes(6, roundNum, true)
+    handleEnemyTeam(enemyTeam)
     handleCurrentTeam(team)
     increaseRound()
     navigate("/game")

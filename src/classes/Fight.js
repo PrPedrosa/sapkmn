@@ -3,7 +3,7 @@ import { PokeTeam } from "./PokeTeam";
 import { Pokemon } from "./Poke";
 
 export class Fight {
-    constructor(ctx, canvasW, canvasH, playerTeam){
+    constructor(ctx, canvasW, canvasH, playerTeam, enemyTeam){
         this.startTime;
         this.elapsedTime = 0;
         this.animationId;
@@ -18,7 +18,7 @@ export class Fight {
         this.enemyStartPosY = this.canvasH/2 - this.canvasW/15
 
         this.team = new PokeTeam(this.ctx, this.canvasW, this.canvasH, false, this.startPosX, this.startPosY, this.parseTeam(playerTeam).reverse())
-        this.enemyTeam = new PokeTeam(this.ctx, this.canvasW, this.canvasH, true, this.enemyStartPosX, this.enemyStartPosY)
+        this.enemyTeam = new PokeTeam(this.ctx, this.canvasW, this.canvasH, true, this.enemyStartPosX, this.enemyStartPosY, this.parseEnemyTeam(enemyTeam))
 
         this.fightIterations = 0;
         this.enemyFightIterations = 0;
@@ -31,6 +31,10 @@ export class Fight {
     parseTeam(team){
         const filteredTeam = team.filter(poke => poke)
         return filteredTeam.map(poke => new Pokemon(this.ctx, JSON.parse(JSON.stringify(poke)), this.startPosX, this.startPosY, this.canvasW))
+    }
+    parseEnemyTeam(team){
+        const filteredTeam = team.filter(poke => poke)
+        return filteredTeam.map(poke => new Pokemon(this.ctx, JSON.parse(JSON.stringify(poke)), this.enemyStartPosX, this.enemyStartPosY, this.canvasW))
     }
 
     battleAnimation = () => {

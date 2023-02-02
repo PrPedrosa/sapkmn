@@ -11,11 +11,11 @@ export class PokeTeam {
         this.startPosX = startPosX;
         this.startPosY = startPosY
         this.isEnemy = isEnemy;
-        this.team.length === 0 ? this.generateRandomTeam(6) : null
+        //this.team.length === 0 ? this.generateRandomTeam(6) : null
         
     }
 
-    generateRandomTeam(n){
+   /*  generateRandomTeam(n){
         if(n > 6 || n <= 0) throw new Error("number of Pokemon must be between 0 and 6");
         
         const getRandomPoke = () => JSON.parse(JSON.stringify(this.pokeArr[Math.floor(Math.random()*152)]))
@@ -23,7 +23,7 @@ export class PokeTeam {
         for(let i = 0; i < n; i++){
             this.team.push(new Pokemon(this.ctx, getRandomPoke(), this.startPosX, this.startPosY, this.canvasW))
         }
-    }
+    } */
 
     draw(){
         this.team.forEach((poke, i) => {

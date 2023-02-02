@@ -15,22 +15,38 @@ export function createOnePoke (poke){
   return newPoke
 }
 
-export function getRandomPokes (numOfPokes, roundNum) {
-  const pokeArray = storePokemonsFilter(roundNum)
+export function getRandomPokes (numOfPokes, roundNum, isEnemyTeam) {
+  const pokeArray = isEnemyTeam? enemyPokemonsFilter(roundNum) : storePokemonsFilter(roundNum)
   console.log(pokeArray)
-  const randStorePokes = []
+  const randPokeTeam = []
   for(let i = 0; i < numOfPokes; i++){
       const randNum = Math.floor(Math.random()*(pokeArray.length))
-      //const randNum = 151
+      //const randNum = 5
       const randPoke = createOnePoke(pokeArray[randNum])
-      randStorePokes.push(randPoke)
+      randPokeTeam.push(randPoke)
   }
-  return randStorePokes
+  return randPokeTeam
 }
 
-//##### DO THIS: careful for roundNum being increased before fight########
 export function enemyPokemonsFilter (roundNum) {
-
+  Array.prototype.checkSum = function sumStats (){
+    return this[1] >= this[3] ? this[0] + this[1] : this[0] + this[3]
+  }
+  if (roundNum <= 3){
+    return allPokemon.filter(poke => Object.values(poke.stats).checkSum() <= 85)
+  }
+  if (roundNum <= 6){
+    return allPokemon.filter(poke => Object.values(poke.stats).checkSum() <= 110)
+  }
+  if (roundNum <= 9){
+    return allPokemon.filter(poke => Object.values(poke.stats).checkSum() <= 150)
+  }
+  if (roundNum <= 12){
+    return allPokemon.filter(poke => Object.values(poke.stats).checkSum() <= 190)
+  }
+  if (roundNum > 12){
+    return allPokemon.filter(poke => Object.values(poke.stats).checkSum() <= 300)
+  }
 }
 
 export function storePokemonsFilter (roundNum) {
@@ -38,7 +54,7 @@ export function storePokemonsFilter (roundNum) {
     return this[1] >= this[3] ? this[0] + this[1] : this[0] + this[3]
   }
   if (roundNum <= 3){
-    return allPokemon.filter(poke => Object.values(poke.stats).checkSum() <= 85)
+    return allPokemon.filter(poke => Object.values(poke.stats).checkSum() <= 4000)
   }
   if (roundNum <= 6){
     return allPokemon.filter(poke => Object.values(poke.stats).checkSum() <= 110)
@@ -193,3 +209,24 @@ export function guid() {
     }
     return s4() + s4() + '-' + s4() + s4()
 }
+
+export const typeColours = {
+	normal: 'bg-[#A8A77A]',
+	fire: 'bg-[#EE8130]',
+	water: 'bg-[#6390F0]',
+	electric: 'bg-[#F7D02C]',
+	grass: 'bg-[#7AC74C]',
+	ice: 'bg-[#96D9D6]',
+	fighting: 'bg-[#C22E28]',
+	poison: 'bg-[#A33EA1]',
+	ground: 'bg-[#E2BF65]',
+	flying: 'bg-[#A98FF3]',
+	psychic: 'bg-[#F95587]',
+	bug: 'bg-[#A6B91A]',
+	rock: 'bg-[#B6A136]',
+	ghost: 'bg-[#735797]',
+	dragon: 'bg-[#6F35FC]',
+	dark: 'bg-[#705746]',
+	steel: 'bg-[#B7B7CE]',
+	fairy: 'bg-[#D685AD]',
+};
