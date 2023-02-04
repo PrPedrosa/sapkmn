@@ -1,10 +1,10 @@
 import classNames from "classnames"
 
-function Tag({text, style}) {
+function Tag({text, className}) {
   return (
     <div 
     className={
-    classNames("text-white rounded-lg", style)
+    classNames("text-white rounded-lg", className)
     }
     draggable="false"
     >{text}</div>

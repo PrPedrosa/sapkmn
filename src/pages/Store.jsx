@@ -1,7 +1,7 @@
 import {useContext, useState, useEffect, useRef} from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
-import Money from '../components/Money';
+import GameInfo from '../components/GameInfo';
 import Pokemon from '../components/Pokemon';
 import { GameContext } from "../contexts/game.context"
 import { getDropResults, getRandomPokes} from '../utils/utilities';
@@ -107,8 +107,7 @@ function Store() {
 
   return(
     <div className='h-screen flex flex-col justify-around bg-slate-500'>
-      <Money amount={money}/>
-      <div className='absolute top-0 left-[50px]'>Round: {roundNum}</div>
+      <GameInfo money={money} round={roundNum} lifes={5} className={"absolute top-[5px] left-[45%]"}/>
       <button onClick={startFight} className="absolute top-0 right-0 p-[3px] text-white bg-red-800 border-2 border-black">Fight!</button>
       <Button text="Sell" onClick={handleSell}/>
       <div className='border-2 border-red-800 rounded-[5px] p-5 grid grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr] self-center gap-[5px]'>

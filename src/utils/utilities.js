@@ -21,7 +21,7 @@ export function getRandomPokes (numOfPokes, roundNum, isEnemyTeam) {
   const randPokeTeam = []
   for(let i = 0; i < numOfPokes; i++){
       const randNum = Math.floor(Math.random()*(pokeArray.length))
-      //const randNum = 5
+      //const randNum = 1
       const randPoke = createOnePoke(pokeArray[randNum])
       randPokeTeam.push(randPoke)
   }
@@ -210,6 +210,10 @@ export function guid() {
     return s4() + s4() + '-' + s4() + s4()
 }
 
+export function capitalize (str) {
+  return str[0].toUpperCase() + str.slice(1)
+}
+
 export const typeColours = {
 	normal: 'bg-[#A8A77A]',
 	fire: 'bg-[#EE8130]',
@@ -230,3 +234,71 @@ export const typeColours = {
 	steel: 'bg-[#B7B7CE]',
 	fairy: 'bg-[#D685AD]',
 };
+
+export function getTypeColoursGradient (types) {
+  const colors = {
+    normal: '[#A8A77A]',
+	  fire: '[#EE8130]',
+	  water: '[#6390F0]',
+	  electric: '[#F7D02C]',
+	  grass: '[#7AC74C]',
+	  ice: '[#96D9D6]',
+	  fighting: '[#C22E28]',
+	  poison: '[#A33EA1]',
+	  ground: '[#E2BF65]',
+	  flying: '[#A98FF3]',
+	  psychic: '[#F95587]',
+	  bug: '[#A6B91A]',
+	  rock: '[#B6A136]',
+	  ghost: '[#735797]',
+	  dragon: '[#6F35FC]',
+	  dark: '[#705746]',
+	  steel: '[#B7B7CE]',
+	  fairy: '[#D685AD]',
+  }
+
+  const fromColors = {
+    normal: 'from-[#A8A77A]',
+	  fire: 'from-[#EE8130]',
+	  water: 'from-[#6390F0]',
+	  electric: 'from-[#F7D02C]',
+	  grass: 'from-[#7AC74C]',
+	  ice: 'from-[#96D9D6]',
+	  fighting: 'from-[#C22E28]',
+	  poison: 'from-[#A33EA1]',
+	  ground: 'from-[#E2BF65]',
+	  flying: 'from-[#A98FF3]',
+	  psychic: 'from-[#F95587]',
+	  bug: 'from-[#A6B91A]',
+	  rock: 'from-[#B6A136]',
+	  ghost: 'from-[#735797]',
+	  dragon: 'from-[#6F35FC]',
+	  dark: 'from-[#705746]',
+	  steel: 'from-[#B7B7CE]',
+	  fairy: 'from-[#D685AD]',
+  }
+  const toColors = {
+    normal: 'to-[#A8A77A]',
+	  fire: 'to-[#EE8130]',
+	  water: 'to-[#6390F0]',
+	  electric: 'to-[#F7D02C]',
+	  grass: 'to-[#7AC74C]',
+	  ice: 'to-[#96D9D6]',
+	  fighting: 'to-[#C22E28]',
+	  poison: 'to-[#A33EA1]',
+	  ground: 'to-[#E2BF65]',
+	  flying: 'to-[#A98FF3]',
+	  psychic: 'to-[#F95587]',
+	  bug: 'to-[#A6B91A]',
+	  rock: 'to-[#B6A136]',
+	  ghost: 'to-[#735797]',
+	  dragon: 'to-[#6F35FC]',
+	  dark: 'to-[#705746]',
+	  steel: 'to-[#B7B7CE]',
+	  fairy: 'to-[#D685AD]',
+  }
+  
+
+  if(types.length === 1) return `bg-${colors[types[0]]}`
+  return `bg-gradient-to-r ${fromColors[types[0]]} ${toColors[types[1]]}`
+}
