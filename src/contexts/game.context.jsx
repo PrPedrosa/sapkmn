@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext } from 'react';
 import { allPokemon } from '../db';
-import { guid } from '../utils/utilities';
+import { createOnePoke } from '../utils/utilities';
 
 const GameContext = createContext()
 
@@ -12,9 +12,9 @@ function GameProviderWrapper(props) {
   const [roundNum, setRoundNum] = useState(1)
 
   const handleStarter = (poke) => {
-    poke.id = guid()
-    setStarter(poke)
-    setCurrentTeam([poke, null, null, null, null, null])
+    const starterPoke = createOnePoke(poke)
+    setStarter(starterPoke)
+    setCurrentTeam([starterPoke, null, null, null, null, null])
   }
 
   const handleCurrentTeam = (currentTeam) => {

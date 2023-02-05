@@ -28,8 +28,8 @@ export function getRandomPokes (numOfPokes, roundNum, isEnemyTeam) {
   console.log(pokeArray)
   const randPokeTeam = []
   for(let i = 0; i < numOfPokes; i++){
-      //const randNum = Math.floor(Math.random()*(pokeArray.length))
-      const randNum =112
+      const randNum = Math.floor(Math.random()*(pokeArray.length))
+      //const randNum =112
       const randPoke = createOnePoke(pokeArray[randNum])
       randPokeTeam.push(randPoke)
   }

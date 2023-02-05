@@ -32,8 +32,8 @@ export class Fight {
         this.showNewState = false
         this.stateShownTimer = 0
         this.endstateShownTimer = 0
+        this.showStats = false
 
-        this.debug = false
     }
 
     parseTeam(team){
@@ -76,7 +76,7 @@ export class Fight {
         const frontPoke = this.team.team[0].pokemon
         const enemyFrontPoke = this.enemyTeam.team[0].pokemon
         this.damages = this.getTypesModifier(frontPoke, enemyFrontPoke)
-        //check if using ATT or SPATT ###dont forget enemy att or spatt
+        //check if using ATT or SPATT
         if(frontPoke.stats.att >= frontPoke.stats.spAtt && enemyFrontPoke.stats.att >= enemyFrontPoke.stats.spAtt){
             this.fightAttVsAtt(frontPoke, enemyFrontPoke)
         }
@@ -89,27 +89,6 @@ export class Fight {
         if(frontPoke.stats.att < frontPoke.stats.spAtt && enemyFrontPoke.stats.att < enemyFrontPoke.stats.spAtt){
             this.fightSpAttVsSpAtt(frontPoke, enemyFrontPoke)
         }
-
-        /* if(this.fightIterations < enemyFrontPoke.stats.att){
-            frontPoke.stats.hp -= damages[1]
-            this.fightIterations++
-        }
-        if(this.enemyFightIterations < frontPoke.stats.att){
-            enemyFrontPoke.stats.hp -= damages[0]
-            this.enemyFightIterations++
-        }
-        if(this.fightIterations === enemyFrontPoke.stats.att && this.enemyFightIterations === frontPoke.stats.att){
-            if(enemyFrontPoke.stats.hp <= 0){
-                this.enemyTeam.team.shift()
-            }
-            if(frontPoke.stats.hp <= 0){
-                this.team.team.shift()
-            }
-            this.fightIterations = 0;
-            this.enemyFightIterations = 0;
-            this.fighting = false;
-            this.animating = true
-        } */
     }
 
     fightAttVsAtt(poke, enemyPoke){
@@ -247,7 +226,7 @@ export class Fight {
             this.stateShownTimer = 0
             this.endstateShownTimer = 0
             this.showNewState = false
-            this.debug = false
+            this.showStats = false
         } else {
             this.animateStatsState()
             this.stateShownTimer ++
@@ -255,10 +234,7 @@ export class Fight {
     }
 
     animateStatsState(){
-        console.log("stateShownTimer =>" + this.stateShownTimer)
-        console.log("endStateShownTimer =>" + this.endstateShownTimer)
-        console.log("showState =>" + this.showNewState)
-        this.debug = true
+        this.showStats = true
     }
 
     drawMiddleLine(){

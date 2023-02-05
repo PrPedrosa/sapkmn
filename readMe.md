@@ -6,7 +6,7 @@
 - [ ] game over modal on game page
 - [ ] display game info on game page
 - [ ] if lifes = 0, redirect to home page
-- [ ] fix starter stats
+- [x] fix starter stats
 - [ ] add items? (potion = +hp | rarecandy | x-items for stats...)
 - [ ] add abilities powers
 - [ ] add trainer list
