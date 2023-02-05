@@ -28,6 +28,12 @@ export class Fight {
         this.animating = false
         this.fighting = false
         this.fightStatus = "running"
+
+        this.showNewState = false
+        this.stateShownTimer = 0
+        this.endstateShownTimer = 0
+
+        this.debug = false
     }
 
     parseTeam(team){
@@ -116,16 +122,24 @@ export class Fight {
             this.enemyFightIterations++
         }
         if(this.fightIterations === enemyPoke.stats.att && this.enemyFightIterations === poke.stats.att){
-            if(enemyPoke.stats.hp <= 0){
-                this.enemyTeam.team.shift()
+            if(this.stateShownTimer === 0){
+                this.showNewState = true
             }
-            if(poke.stats.hp <= 0){
-                this.team.team.shift()
+            this.startShowNewState()
+            
+           if(!this.showNewState){
+               if(enemyPoke.stats.hp <= 0){
+                   this.enemyTeam.team.shift()
+               }
+               if(poke.stats.hp <= 0){
+                   this.team.team.shift()
+               }
+               this.fightIterations = 0;
+               this.enemyFightIterations = 0;
+               this.fighting = false;
+               this.animating = true
             }
-            this.fightIterations = 0;
-            this.enemyFightIterations = 0;
-            this.fighting = false;
-            this.animating = true
+        
         }
     }
 
@@ -139,16 +153,24 @@ export class Fight {
             this.enemyFightIterations++
         }
         if(this.fightIterations === enemyPoke.stats.spAtt && this.enemyFightIterations === poke.stats.att){
-            if(enemyPoke.stats.hp <= 0){
-                this.enemyTeam.team.shift()
+            if(this.stateShownTimer === 0){
+                this.showNewState = true
             }
-            if(poke.stats.hp <= 0){
-                this.team.team.shift()
+            this.startShowNewState()
+
+            if(!this.showNewState){
+                if(enemyPoke.stats.hp <= 0){
+                    this.enemyTeam.team.shift()
+                }
+                if(poke.stats.hp <= 0){
+                    this.team.team.shift()
+                }
+                this.fightIterations = 0;
+                this.enemyFightIterations = 0;
+                this.fighting = false;
+                this.animating = true
             }
-            this.fightIterations = 0;
-            this.enemyFightIterations = 0;
-            this.fighting = false;
-            this.animating = true
+
         }
     }
 
@@ -162,16 +184,24 @@ export class Fight {
             this.enemyFightIterations++
         }
         if(this.fightIterations === enemyPoke.stats.att && this.enemyFightIterations === poke.stats.spAtt){
-            if(enemyPoke.stats.hp <= 0){
-                this.enemyTeam.team.shift()
+            if(this.stateShownTimer === 0){
+                this.showNewState = true
             }
-            if(poke.stats.hp <= 0){
-                this.team.team.shift()
+            this.startShowNewState()
+
+
+            if(!this.showNewState){
+                if(enemyPoke.stats.hp <= 0){
+                    this.enemyTeam.team.shift()
+                }
+                if(poke.stats.hp <= 0){
+                    this.team.team.shift()
+                }
+                this.fightIterations = 0;
+                this.enemyFightIterations = 0;
+                this.fighting = false;
+                this.animating = true
             }
-            this.fightIterations = 0;
-            this.enemyFightIterations = 0;
-            this.fighting = false;
-            this.animating = true
         }
     }
 
@@ -185,17 +215,50 @@ export class Fight {
             this.enemyFightIterations++
         }
         if(this.fightIterations === enemyPoke.stats.spAtt && this.enemyFightIterations === poke.stats.spAtt){
-            if(enemyPoke.stats.hp <= 0){
-                this.enemyTeam.team.shift()
+            if(this.stateShownTimer === 0){
+                this.showNewState = true
             }
-            if(poke.stats.hp <= 0){
-                this.team.team.shift()
+            this.startShowNewState()
+
+
+            if(!this.showNewState){
+                if(enemyPoke.stats.hp <= 0){
+                    this.enemyTeam.team.shift()
+                }
+                if(poke.stats.hp <= 0){
+                    this.team.team.shift()
+                }
+                this.fightIterations = 0;
+                this.enemyFightIterations = 0;
+                this.fighting = false;
+                this.animating = true
             }
-            this.fightIterations = 0;
-            this.enemyFightIterations = 0;
-            this.fighting = false;
-            this.animating = true
         }
+    }
+
+
+    startShowNewState(){
+        if(this.stateShownTimer === 0) {
+            this.stateShownTimer = this.elapsedTime
+            this.endstateShownTimer = this.stateShownTimer +  80//frames to continue with below animation
+        }
+        
+        if(this.stateShownTimer === this.endstateShownTimer){
+            this.stateShownTimer = 0
+            this.endstateShownTimer = 0
+            this.showNewState = false
+            this.debug = false
+        } else {
+            this.animateStatsState()
+            this.stateShownTimer ++
+        }
+    }
+
+    animateStatsState(){
+        console.log("stateShownTimer =>" + this.stateShownTimer)
+        console.log("endStateShownTimer =>" + this.endstateShownTimer)
+        console.log("showState =>" + this.showNewState)
+        this.debug = true
     }
 
     drawMiddleLine(){
@@ -221,7 +284,6 @@ export class Fight {
             //cancelAnimationFrame(this.animationId)
         }
         this.elapsedTime = +((time - startTime)*0.001).toFixed(1) // time in seconds (0.0s)
-        console.log(this.elapsedTime)
         this.ctx.clearRect(0, 0, this.canvasW, this.canvasH)
         this.drawMiddleLine()
         

@@ -14,6 +14,7 @@ function Game() {
   const [isAnimating, setIsAnimating] = useState(false)
   const [damagesModifier, setDamagesModifier] = useState(null)
   const [isFighting, setIsFighting] = useState(false)
+  const [debug, setDebug] = useState(false)
   
   const containerRef = useRef(null)
   const canvasRef = useRef(null)
@@ -44,6 +45,7 @@ function Game() {
     setFight(updatedFight)
     setFightStatus((prevStatus) => prevStatus = fight.fightStatus)
     setDamagesModifier((prev) => prev = fight.damages)
+    setDebug((prev) => prev = fight.debug)
     setIsFighting((prev) => prev = fight.fighting)
 
     previousTimeRef.current = time;
@@ -70,6 +72,7 @@ function Game() {
     <div className='h-screen bg-game-background bg-[length:100vw_100vh] bg-no-repeat' id='canvasContainer' ref={containerRef}>
       <button className='absolute top-0 right-0' onClick={handleAnimation}>STOP</button>
       {fight && <div className='absolute border border-black z-10'>{fightStatus}</div>}
+      {debug && <div className='absolute border top-0 left-1/2'>HELLOOOO</div>}
       <div className='absolute top-[30%] left-[40%] grid grid-cols-[150px_150px] gap-[10px] border h-[50px] text-center'>
         {damagesModifier && isFighting && damagesModifier.reverse().map((dmg, i) => {
           if(dmg === 0.5 || dmg === 0.25){

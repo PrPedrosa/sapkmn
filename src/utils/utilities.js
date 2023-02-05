@@ -1,10 +1,18 @@
 import { allPokemon } from "../db"
 
 export function createOnePoke (poke){
+  const newStats = {
+    hp: Math.ceil(poke.stats.hp /10) + Math.floor(poke.stats.def /20) + Math.floor(poke.stats.spDef /20),
+    att: Math.floor(poke.stats.att /10),
+    def: Math.floor(poke.stats.def /10),
+    spAtt: Math.floor(poke.stats.spAtt /10),
+    spDef: Math.floor(poke.stats.spDef /10),
+    speed: Math.floor(poke.stats.speed /10),
+  }
   const newPoke = {
     name: poke.name,
     img: poke.img,
-    stats: poke.stats,
+    stats: newStats,
     types: poke.types,
     id: guid(),
     level: poke.level,
@@ -20,8 +28,8 @@ export function getRandomPokes (numOfPokes, roundNum, isEnemyTeam) {
   console.log(pokeArray)
   const randPokeTeam = []
   for(let i = 0; i < numOfPokes; i++){
-      const randNum = Math.floor(Math.random()*(pokeArray.length))
-      //const randNum = 3
+      //const randNum = Math.floor(Math.random()*(pokeArray.length))
+      const randNum =112
       const randPoke = createOnePoke(pokeArray[randNum])
       randPokeTeam.push(randPoke)
   }
@@ -71,10 +79,18 @@ export function storePokemonsFilter (roundNum) {
 }
 
 export function levelUpPoke (poke, levelNum) {
+  const newStats = {
+    hp: poke.stats.hp + 1,
+    att: poke.stats.att + 1,
+    def: poke.stats.def + 1,
+    spAtt: poke.stats.spAtt + 1,
+    spDef: poke.stats.spDef + 1,
+    speed: poke.stats.speed + 1,
+  }
   const leveledUpPoke = {
     name: poke.name,
     img: poke.img,
-    stats: poke.stats,
+    stats: newStats,
     types: poke.types,
     id: guid(),
     level: levelNum,
@@ -87,11 +103,19 @@ export function levelUpPoke (poke, levelNum) {
 
 export function evolvePoke (poke, levelNum) {
   const pokeToEvolveTo = allPokemon.find(pokemon => pokemon.levelsFrom === poke.name)
+  const newStats = {
+    hp: poke.stats.hp + 1,
+    att: poke.stats.att + 1,
+    def: poke.stats.def + 1,
+    spAtt: poke.stats.spAtt + 1,
+    spDef: poke.stats.spDef + 1,
+    speed: poke.stats.speed + 1,
+  }
   if(pokeToEvolveTo){
     const evolvedPoke = {
       name: pokeToEvolveTo.name,
       img: pokeToEvolveTo.img,
-      stats: pokeToEvolveTo.stats,
+      stats: newStats,
       types: pokeToEvolveTo.types,
       id: guid(),
       level: levelNum,
