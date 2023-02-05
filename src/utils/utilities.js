@@ -21,7 +21,7 @@ export function getRandomPokes (numOfPokes, roundNum, isEnemyTeam) {
   const randPokeTeam = []
   for(let i = 0; i < numOfPokes; i++){
       const randNum = Math.floor(Math.random()*(pokeArray.length))
-      //const randNum = 1
+      //const randNum = 3
       const randPoke = createOnePoke(pokeArray[randNum])
       randPokeTeam.push(randPoke)
   }
@@ -33,7 +33,7 @@ export function enemyPokemonsFilter (roundNum) {
     return this[1] >= this[3] ? this[0] + this[1] : this[0] + this[3]
   }
   if (roundNum <= 3){
-    return allPokemon.filter(poke => Object.values(poke.stats).checkSum() <= 85)
+    return allPokemon.filter(poke => Object.values(poke.stats).checkSum() <= 4000)
   }
   if (roundNum <= 6){
     return allPokemon.filter(poke => Object.values(poke.stats).checkSum() <= 110)
@@ -300,5 +300,6 @@ export function getTypeColoursGradient (types) {
   
 
   if(types.length === 1) return `bg-${colors[types[0]]}`
-  return `bg-gradient-to-r ${fromColors[types[0]]} ${toColors[types[1]]}`
+  return `bg-gradient-to-b ${fromColors[types[0]]} ${toColors[types[1]]}`
 }
+

@@ -147,20 +147,38 @@ export class Pokemon {
     drawStats(distanceFromTeamMember = 0){
         this.ctx.font = `${Math.floor(this.canvasW/80)}px sans-serif`
         this.ctx.textBaseline = "top"
-        //DRAW ATT
-        this.ctx.fillStyle = "black";
-        this.ctx.fillRect(
-            Math.floor(this.startPosX - distanceFromTeamMember - this.size + this.canvasW/150), //X
-            Math.floor(this.startPosY + this.size -1 /* - this.canvasW/150 */), //Y
-            Math.floor(this.canvasW/40), //size X
-            Math.floor(this.canvasW/75) //size Y
-        )
-        this.ctx.fillStyle = "white"
-        this.ctx.fillText(
-            this.pokemon.stats.att, //stat number
-            Math.floor(this.startPosX - distanceFromTeamMember - this.size + this.canvasW/115), //X
-            Math.floor(this.startPosY + this.size +1 /* + this.canvasW/150 */) //Y
-        )
+
+        if(this.pokemon.stats.att >= this.pokemon.stats.spAtt){
+            //DRAW ATT
+            this.ctx.fillStyle = "black";
+            this.ctx.fillRect(
+                Math.floor(this.startPosX - distanceFromTeamMember - this.size + this.canvasW/150), //X
+                Math.floor(this.startPosY + this.size -1 /* - this.canvasW/150 */), //Y
+                Math.floor(this.canvasW/40), //size X
+                Math.floor(this.canvasW/75) //size Y
+            )
+            this.ctx.fillStyle = "white"
+            this.ctx.fillText(
+                this.pokemon.stats.att, //stat number
+                Math.floor(this.startPosX - distanceFromTeamMember - this.size + this.canvasW/115), //X
+                Math.floor(this.startPosY + this.size +1 /* + this.canvasW/150 */) //Y
+            )
+        } else {
+            //DRAW SPATT
+            this.ctx.fillStyle = "rgb(91, 33, 182)";
+            this.ctx.fillRect(
+                Math.floor(this.startPosX - distanceFromTeamMember - this.size + this.canvasW/150), //X
+                Math.floor(this.startPosY + this.size -1 /* - this.canvasW/150 */), //Y
+                Math.floor(this.canvasW/40), //size X
+                Math.floor(this.canvasW/75) //size Y
+            )
+            this.ctx.fillStyle = "white"
+            this.ctx.fillText(
+                this.pokemon.stats.spAtt, //stat number
+                Math.floor(this.startPosX - distanceFromTeamMember - this.size + this.canvasW/115), //X
+                Math.floor(this.startPosY + this.size +1 /* + this.canvasW/150 */) //Y
+            )
+        }
 
         //DRAW HP
         this.ctx.fillStyle = "darkred";
@@ -173,7 +191,7 @@ export class Pokemon {
         this.ctx.textAlign = "right"
         this.ctx.fillStyle = "white"
         this.ctx.fillText(
-            this.pokemon.stats.hp, //stat number
+            Math.ceil(this.pokemon.stats.hp), //stat number
             Math.floor(this.startPosX - distanceFromTeamMember - this.canvasW/115), //X
             Math.floor(this.startPosY + this.size +1 /* + this.canvasW/150 */) //Y
         )

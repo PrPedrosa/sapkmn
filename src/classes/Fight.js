@@ -1,6 +1,7 @@
 import { allPokemon } from "../db";
 import { PokeTeam } from "./PokeTeam";
 import { Pokemon } from "./Poke";
+import { typeChart } from "../utils/type-chart";
 
 export class Fight {
     constructor(ctx, canvasW, canvasH, playerTeam, enemyTeam){
@@ -22,6 +23,7 @@ export class Fight {
 
         this.fightIterations = 0;
         this.enemyFightIterations = 0;
+        this.damages = []
 
         this.animating = false
         this.fighting = false
@@ -48,16 +50,46 @@ export class Fight {
         }
     }
 
+    getTypesModifier(poke, enemyPoke){
+        let typeModifier, enemyTypeModifier
+        if(enemyPoke.types.length === 2){
+            typeModifier = typeChart[enemyPoke.types[0]][poke.types[0]] * typeChart[enemyPoke.types[1]][poke.types[0]]
+        } else {
+            typeModifier = typeChart[enemyPoke.types[0]][poke.types[0]]
+        }
+
+        if(poke.types.length === 2){
+            enemyTypeModifier = typeChart[poke.types[0]][enemyPoke.types[0]] * typeChart[poke.types[1]][enemyPoke.types[0]]
+        } else {
+            enemyTypeModifier = typeChart[poke.types[0]][enemyPoke.types[0]]
+        }
+        return [typeModifier, enemyTypeModifier]
+    }
+
     fight(){
         const frontPoke = this.team.team[0].pokemon
         const enemyFrontPoke = this.enemyTeam.team[0].pokemon
+        this.damages = this.getTypesModifier(frontPoke, enemyFrontPoke)
+        //check if using ATT or SPATT ###dont forget enemy att or spatt
+        if(frontPoke.stats.att >= frontPoke.stats.spAtt && enemyFrontPoke.stats.att >= enemyFrontPoke.stats.spAtt){
+            this.fightAttVsAtt(frontPoke, enemyFrontPoke)
+        }
+        if(frontPoke.stats.att >= frontPoke.stats.spAtt && enemyFrontPoke.stats.att < enemyFrontPoke.stats.spAtt){
+            this.fightAttVsSpAtt(frontPoke, enemyFrontPoke)
+        }
+        if(frontPoke.stats.att < frontPoke.stats.spAtt && enemyFrontPoke.stats.att >= enemyFrontPoke.stats.spAtt){
+            this.fightSpAttVsAtt(frontPoke, enemyFrontPoke)
+        }
+        if(frontPoke.stats.att < frontPoke.stats.spAtt && enemyFrontPoke.stats.att < enemyFrontPoke.stats.spAtt){
+            this.fightSpAttVsSpAtt(frontPoke, enemyFrontPoke)
+        }
 
-        if(this.fightIterations < enemyFrontPoke.stats.att){
-            frontPoke.stats.hp -= 1
+        /* if(this.fightIterations < enemyFrontPoke.stats.att){
+            frontPoke.stats.hp -= damages[1]
             this.fightIterations++
         }
         if(this.enemyFightIterations < frontPoke.stats.att){
-            enemyFrontPoke.stats.hp -= 1
+            enemyFrontPoke.stats.hp -= damages[0]
             this.enemyFightIterations++
         }
         if(this.fightIterations === enemyFrontPoke.stats.att && this.enemyFightIterations === frontPoke.stats.att){
@@ -71,10 +103,102 @@ export class Fight {
             this.enemyFightIterations = 0;
             this.fighting = false;
             this.animating = true
+        } */
+    }
+
+    fightAttVsAtt(poke, enemyPoke){
+        if(this.fightIterations < enemyPoke.stats.att){
+            poke.stats.hp -= this.damages[1]
+            this.fightIterations++
+        }
+        if(this.enemyFightIterations < poke.stats.att){
+            enemyPoke.stats.hp -= this.damages[0]
+            this.enemyFightIterations++
+        }
+        if(this.fightIterations === enemyPoke.stats.att && this.enemyFightIterations === poke.stats.att){
+            if(enemyPoke.stats.hp <= 0){
+                this.enemyTeam.team.shift()
+            }
+            if(poke.stats.hp <= 0){
+                this.team.team.shift()
+            }
+            this.fightIterations = 0;
+            this.enemyFightIterations = 0;
+            this.fighting = false;
+            this.animating = true
         }
     }
 
-    middleLine(){
+    fightAttVsSpAtt(poke, enemyPoke){
+        if(this.fightIterations < enemyPoke.stats.spAtt){
+            poke.stats.hp -= this.damages[1]
+            this.fightIterations++
+        }
+        if(this.enemyFightIterations < poke.stats.att){
+            enemyPoke.stats.hp -= this.damages[0]
+            this.enemyFightIterations++
+        }
+        if(this.fightIterations === enemyPoke.stats.spAtt && this.enemyFightIterations === poke.stats.att){
+            if(enemyPoke.stats.hp <= 0){
+                this.enemyTeam.team.shift()
+            }
+            if(poke.stats.hp <= 0){
+                this.team.team.shift()
+            }
+            this.fightIterations = 0;
+            this.enemyFightIterations = 0;
+            this.fighting = false;
+            this.animating = true
+        }
+    }
+
+    fightSpAttVsAtt(poke, enemyPoke){
+        if(this.fightIterations < enemyPoke.stats.att){
+            poke.stats.hp -= this.damages[1]
+            this.fightIterations++
+        }
+        if(this.enemyFightIterations < poke.stats.spAtt){
+            enemyPoke.stats.hp -= this.damages[0]
+            this.enemyFightIterations++
+        }
+        if(this.fightIterations === enemyPoke.stats.att && this.enemyFightIterations === poke.stats.spAtt){
+            if(enemyPoke.stats.hp <= 0){
+                this.enemyTeam.team.shift()
+            }
+            if(poke.stats.hp <= 0){
+                this.team.team.shift()
+            }
+            this.fightIterations = 0;
+            this.enemyFightIterations = 0;
+            this.fighting = false;
+            this.animating = true
+        }
+    }
+
+    fightSpAttVsSpAtt(poke, enemyPoke){
+        if(this.fightIterations < enemyPoke.stats.spAtt){
+            poke.stats.hp -= this.damages[1]
+            this.fightIterations++
+        }
+        if(this.enemyFightIterations < poke.stats.spAtt){
+            enemyPoke.stats.hp -= this.damages[0]
+            this.enemyFightIterations++
+        }
+        if(this.fightIterations === enemyPoke.stats.spAtt && this.enemyFightIterations === poke.stats.spAtt){
+            if(enemyPoke.stats.hp <= 0){
+                this.enemyTeam.team.shift()
+            }
+            if(poke.stats.hp <= 0){
+                this.team.team.shift()
+            }
+            this.fightIterations = 0;
+            this.enemyFightIterations = 0;
+            this.fighting = false;
+            this.animating = true
+        }
+    }
+
+    drawMiddleLine(){
         this.ctx.beginPath();
         this.ctx.moveTo(this.canvasW/2, 0)
         this.ctx.lineTo(this.canvasW/2, this.canvasH);
@@ -99,7 +223,7 @@ export class Fight {
         this.elapsedTime = +((time - startTime)*0.001).toFixed(1) // time in seconds (0.0s)
         console.log(this.elapsedTime)
         this.ctx.clearRect(0, 0, this.canvasW, this.canvasH)
-        this.middleLine()
+        this.drawMiddleLine()
         
         this.team.draw()
         this.enemyTeam.draw()
@@ -123,6 +247,5 @@ export class Fight {
 
     start(){
         this.update();
-
     }
 }

@@ -12,6 +12,8 @@ function Game() {
   const [fight, setFight] = useState(null)
   const [fightStatus, setFightStatus] = useState("")
   const [isAnimating, setIsAnimating] = useState(false)
+  const [damagesModifier, setDamagesModifier] = useState(null)
+  const [isFighting, setIsFighting] = useState(false)
   
   const containerRef = useRef(null)
   const canvasRef = useRef(null)
@@ -25,8 +27,6 @@ function Game() {
   useEffect(() => {
     if(currentTeam && enemyTeam){
       const canvas = canvasRef.current
-      //canvas.width = window.innerWidth;
-      //canvas.height = window.innerHeight;
       const ctx = canvas.getContext('2d')
       setFight(new Fight(ctx, canvas.width, canvas.height, currentTeam, enemyTeam))
     }
@@ -39,18 +39,21 @@ function Game() {
     }
     if (previousTimeRef.current !== undefined) {
       //const deltaTime = time - previousTimeRef.current; //time between animate calls if needed
-      const updatedFight = fight.update(startTime.current, time)
-      setFight(updatedFight)
-      setFightStatus((prevStatus) => prevStatus = fight.fightStatus)
     }
+    const updatedFight = fight.update(startTime.current, time)
+    setFight(updatedFight)
+    setFightStatus((prevStatus) => prevStatus = fight.fightStatus)
+    setDamagesModifier((prev) => prev = fight.damages)
+    setIsFighting((prev) => prev = fight.fighting)
+
     previousTimeRef.current = time;
     requestRef.current = requestAnimationFrame(animate);
-    if(fight.fightStatus === "win" || fight.fightStatus === "lose"){
+    if(fight.fightStatus === "win" || fight.fightStatus === "lose" || fight.fightStatus == "draw"){
       handleAnimation()
     }
   }
 
-  //################### start animation ##################
+  //################### start and stop animation ##################
   useEffect(() => {
     if(fight && !isAnimating){
       setIsAnimating(true)
@@ -65,8 +68,19 @@ function Game() {
 
   return (
     <div className='h-screen bg-game-background bg-[length:100vw_100vh] bg-no-repeat' id='canvasContainer' ref={containerRef}>
-    <button className='absolute top-0 right-0' onClick={handleAnimation}>STOP</button>
+      <button className='absolute top-0 right-0' onClick={handleAnimation}>STOP</button>
       {fight && <div className='absolute border border-black z-10'>{fightStatus}</div>}
+      <div className='absolute top-[30%] left-[40%] grid grid-cols-[150px_150px] gap-[10px] border h-[50px] text-center'>
+        {damagesModifier && isFighting && damagesModifier.reverse().map((dmg, i) => {
+          if(dmg === 0.5 || dmg === 0.25){
+            return <div key={i} className="border">Not very effective!</div>
+          }
+          if(dmg === 2 || dmg === 4){
+            return <div key={i} className="border">Super effective!</div>
+          }
+          else return <div className="border">Normal</div>
+        })}
+      </div>
       <canvas width={1536} height={714} className={"w-full h-full"} ref={canvasRef}/>
     </div>
   )
