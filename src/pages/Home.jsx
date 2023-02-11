@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom"
-import { useContext, useState } from "react"
-import { GameContext } from "../contexts/game.context"
+import { useContext, useState, useEffect } from "react"
 
-function Home() {
-  const {handleStarter, pokeArray} = useContext(GameContext)
+function Home({handleStarter, starters, handleHasStarter, roundNum, setRoundNum, gameLevel, setGameLevel, gameLives, setGameLives}) {
   const [start, setStart] = useState(false)
   const [starterChoice, setStarterChoice] = useState("")
+
+  useEffect(() => {
+    roundNum !== 1 && setRoundNum(1)
+    gameLevel !== 1 && setGameLevel(1)
+    gameLives !== 5 && setGameLives(5)
+  }, [])
 
   const handleStarterChoice = (poke) => {    
     handleStarter(poke)
@@ -20,14 +23,14 @@ function Home() {
       
       {start &&
       <>
-      {pokeArray && 
+      {starters && 
       <div>
-        <img src={pokeArray[0].img} onClick={() =>handleStarterChoice(pokeArray[0])} className={starterChoice === "bulba" ? "border border-black" : "none"}/>
-        <img src={pokeArray[3].img} onClick={() =>handleStarterChoice(pokeArray[3])} className={starterChoice === "charmander" ? "border border-black" : "none"}/>
-        <img src={pokeArray[6].img} onClick={() =>handleStarterChoice(pokeArray[6])} className={starterChoice === "squirtle" ? "border border-black" : "none"}/>
+        <img src={starters[0].img} onClick={() =>handleStarterChoice(starters[0])} className={starterChoice === "bulba" ? "border border-black" : "none"}/>
+        <img src={starters[1].img} onClick={() =>handleStarterChoice(starters[1])} className={starterChoice === "charmander" ? "border border-black" : "none"}/>
+        <img src={starters[2].img} onClick={() =>handleStarterChoice(starters[2])} className={starterChoice === "squirtle" ? "border border-black" : "none"}/>
       </div>}
 
-      <Link to={"/store"} className='p-[5px] bg-black text-white border border-white  rounded-lg'>Start!</Link>
+      <button className='p-[5px] bg-black text-white border border-white  rounded-lg' onClick={() => handleHasStarter(true)}>Start!</button>
 
       </>}
     </div>

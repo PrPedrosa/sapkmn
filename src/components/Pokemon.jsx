@@ -22,10 +22,10 @@ function Pokemon({pokemon, dragStart, pokeIdx, dragEnter, drop, pokeType, handle
     onDragEnd={(e) => {drop(e, pokeType); setIsDragging(false); setIsBeingDraggedOver(false)}}
     onClick={(e) => handleSelect(pokemon)}
     className={classNames("rounded-[5px] relative cursor-pointer", getTypeColoursGradient(pokemon.types), {
-      "border-2 border-green-800 opacity-[0.5]": isDragging,
-      "border-2 border-blue-700": isBeingDraggedOver,
-      "border-2 border-black": !isDragging && !isBeingDraggedOver,
-      "border-2 border-red-800 shadow-2xl": pokemon.isSelected,
+      "border-[3px] border-green-800 opacity-[0.5]": isDragging,
+      "border-[3px] border-red-800": isBeingDraggedOver,
+      "border-[3px] border-black": !isDragging && !isBeingDraggedOver,
+      "border-[3px] border-blue-600 shadow-2xl": pokemon.isSelected,
     })}
     >
       <LevelTag level={pokemon.level}/>
@@ -61,7 +61,7 @@ function PokemonPlaceholder ({dragEnter, idx, type, isDraggedOver, handleDragOve
     onDragEnter={(e) => dragEnter(e, idx, type)}
     onDragOver={() => !isDraggedOver && handleDragOver(true)}
     onDragLeave={() => handleDragOver(false)}
-    className={classNames("rounded-[5px] text-center pt-[30%] text-[20px] min-w-[60px] min-h-[60px]", {
+    className={classNames("rounded-[5px] text-center pt-[30%] text-[20px] min-w-[60px] min-h-[60px] text-white bg-slate-500", {
       "border-2 border-blue-700": isDraggedOver,
       "border-2 border-black": !isDraggedOver
     })}

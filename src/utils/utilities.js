@@ -40,6 +40,7 @@ export function enemyPokemonsFilter (roundNum) {
   Array.prototype.checkSum = function sumStats (){
     return this[1] >= this[3] ? this[0] + this[1] : this[0] + this[3]
   }
+  
   if (roundNum <= 3){
     return allPokemon.filter(poke => Object.values(poke.stats).checkSum() <= 4000)
   }

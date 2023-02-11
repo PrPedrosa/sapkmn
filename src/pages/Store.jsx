@@ -7,8 +7,8 @@ import { GameContext } from "../contexts/game.context"
 import { getDropResults, getRandomPokes} from '../utils/utilities';
 
 
-function Store() {
-  const {handleCurrentTeam, currentTeam, roundNum, increaseRound, handleEnemyTeam} = useContext(GameContext)
+function Store({handleCurrentTeam, currentTeam, roundNum, handleEnemyTeam, gameLives, handleIsInFight}) {
+  /* const {handleCurrentTeam, currentTeam, roundNum, handleEnemyTeam, gameLives} = useContext(GameContext) */
 
   const [team, setTeam] = useState(null)
   const [storePokes, setStorePokes] = useState(null)
@@ -29,8 +29,10 @@ function Store() {
 
   //set rand store pokes
   useEffect(() => {
+    if(roundNum){
       setStorePokes(getRandomPokes(10, roundNum))
-  }, [])
+    }
+  }, [roundNum])
 
   const handleDragStart = (e, position, pokeType) => {
     dragPoke.current = {
@@ -96,18 +98,22 @@ function Store() {
     setTeam(teamCopy)
   }
 
-  const navigate = useNavigate()
+  const rollShop = () => {
+    setStorePokes(getRandomPokes(10, roundNum))
+    setMoney(prev => prev -= 1)
+  }
+
   const startFight = () => {
     const enemyTeam = getRandomPokes(6, roundNum, true)
     handleEnemyTeam(enemyTeam)
     handleCurrentTeam(team)
-    increaseRound()
-    navigate("/game")
+    //switch to <Game/>
+    handleIsInFight(true)
   }
 
   return(
-    <div className='h-screen flex flex-col justify-around bg-slate-500'>
-      <GameInfo money={money} round={roundNum} lifes={5} className={"absolute top-[5px] left-[45%]"}/>
+    <div className='h-screen flex flex-col justify-around bg-[#1d1d1d]'>
+      <GameInfo money={money} round={roundNum} lifes={gameLives} className={"absolute top-[5px] left-[45%]"}/>
       <button onClick={startFight} className="absolute top-0 right-0 p-[3px] text-white bg-red-800 border-2 border-black">Fight!</button>
       <Button text="Sell" onClick={handleSell}/>
       <div className='border-2 border-red-800 rounded-[5px] p-5 grid grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr] self-center gap-[5px]'>
@@ -115,6 +121,7 @@ function Store() {
           <Pokemon pokemon={poke} key={i} dragStart={handleDragStart} dragEnter={handleDragEnter} pokeIdx={i} pokeType={"team"} drop={handleDrop} handleSelect={handleSelect}/>
           )}
       </div>
+      <button onClick={rollShop} className="text-white absolute left-0 top-[40%] border bg-blue-700">Roll</button>
       <div className='border-2 border-red-800 rounded-[5px] p-5 flex w-fit gap-[5px]'>
         {storePokes && storePokes.map((poke, i) => 
         <Pokemon pokemon={poke} key={i} dragStart={handleDragStart} dragEnter={handleDragEnter} pokeIdx={i} pokeType={"store"} drop={handleDrop} handleSelect={handleSelect}/>

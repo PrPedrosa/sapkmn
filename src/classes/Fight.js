@@ -34,6 +34,8 @@ export class Fight {
         this.endstateShownTimer = 0
         this.showStats = false
 
+        this.gameOver = false
+
     }
 
     parseTeam(team){
@@ -249,16 +251,17 @@ export class Fight {
         //check game over
         if(this.team.team.length === 0 || this.enemyTeam.team.length === 0){
             if(this.team.team.length === 0 && this.enemyTeam.team.length !== 0){
-                this.fightStatus = "lose"
+                this.fightStatus = "lost"
             }
             if(this.team.team.length !== 0 && this.enemyTeam.team.length === 0){
-                this.fightStatus = "win"
+                this.fightStatus = "won"
             }
             if(this.team.team.length === 0 && this.enemyTeam.team.length === 0){
                 this.fightStatus = "draw"
             }
-            //cancelAnimationFrame(this.animationId)
+            this.gameOver = true
         }
+
         this.elapsedTime = +((time - startTime)*0.001).toFixed(1) // time in seconds (0.0s)
         this.ctx.clearRect(0, 0, this.canvasW, this.canvasH)
         this.drawMiddleLine()

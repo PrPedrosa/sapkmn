@@ -10,6 +10,8 @@ function GameProviderWrapper(props) {
   const [currentTeam, setCurrentTeam] = useState(null)
   const [enemyTeam, setEnemyTeam] = useState(null)
   const [roundNum, setRoundNum] = useState(1)
+  const [gameLevel, setGameLevel] = useState(1)
+  const [gameLives, setGameLives] = useState(5)
 
   const handleStarter = (poke) => {
     const starterPoke = createOnePoke(poke)
@@ -24,10 +26,12 @@ function GameProviderWrapper(props) {
     setEnemyTeam(enemyTeam)
   }
 
-  const increaseRound = () => setRoundNum(prevNum => prevNum +1)
+  const increaseRound = (num) => setRoundNum(prevNum => prevNum + num)
+  const increaseGameLevel = (num) => setGameLevel(prevNum => prevNum + num)
+  const increaseGameLives = (num) => setGameLives(prevNum => prevNum + num)
 
   return(
-    <GameContext.Provider value={{handleStarter, pokeArray, starter, handleCurrentTeam, currentTeam, roundNum, increaseRound, enemyTeam, handleEnemyTeam}}>
+    <GameContext.Provider value={{handleStarter, pokeArray, starter, handleCurrentTeam, currentTeam, roundNum, increaseRound, enemyTeam, handleEnemyTeam, gameLevel, increaseGameLevel, gameLives, increaseGameLives, setRoundNum, setGameLevel, setGameLives}}>
         {props.children}
     </GameContext.Provider>
   )
