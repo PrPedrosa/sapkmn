@@ -1,4 +1,3 @@
-import { allPokemon } from "../db";
 import { PokeTeam } from "./PokeTeam";
 import { Pokemon } from "./Poke";
 import { typeChart } from "../utils/type-chart";
@@ -217,11 +216,10 @@ export class Fight {
         }
     }
 
-
     startShowNewState(){
         if(this.stateShownTimer === 0) {
             this.stateShownTimer = this.elapsedTime
-            this.endstateShownTimer = this.stateShownTimer +  80//frames to continue with below animation
+            this.endstateShownTimer = this.stateShownTimer +  60//frames to continue with below animation
         }
         
         if(this.stateShownTimer === this.endstateShownTimer){

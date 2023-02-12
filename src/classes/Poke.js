@@ -102,12 +102,12 @@ export class Pokemon {
         if(!isEnemy){
             //this.img.src = this.imgSrc
 
-            this.ctx.strokeRect( //black rect
+           /*  this.ctx.strokeRect( //black rect
                 Math.floor(this.startPosX - (distanceFromTeamMember + this.size)), 
                 Math.floor(this.startPosY), 
                 Math.floor(this.size), 
                 Math.floor(this.size)
-            )
+            ) */
             /* this.img.onload = () => { */
                 this.ctx.scale(-1,1) //turning sprites around
                 this.ctx.drawImage( 
@@ -124,12 +124,12 @@ export class Pokemon {
         if(isEnemy){
             //this.img.src = this.imgSrc
 
-            this.ctx.strokeRect(
+           /*  this.ctx.strokeRect(
                 Math.floor(this.startPosX + distanceFromTeamMember), 
                 Math.floor(this.startPosY), 
                 Math.floor(this.size), 
                 Math.floor(this.size)
-            )
+            ) */
             
            /*  this.img.onload = () => { */
                 
